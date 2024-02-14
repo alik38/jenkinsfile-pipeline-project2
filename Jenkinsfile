@@ -3,27 +3,15 @@ pipeline {
     stages {
         stage('build') {
             steps {
-                echo 'Clarusway_Way to Reinvent Yourself'
-                sh 'echo Integrating Jenkins Pipeline with Github Webhook using Jenkinsfile'
-
-            }
-        }
-
-        stage('test') {
-            steps {
-                echo 'Clarusway_Way to Reinvent Yourself-2'
-                sh 'whoami'
-                sh 'pwd'
-                sh 'ls'
+                echo 'Compiling the java source code'
+                sh 'javac Hello.java'
             }
         }
         stage('run') {
             steps {
-                echo 'Clarusway_Way to Reinvent Yourself-3'
-                sh 'python3 --version'
-                sh 'python3 pipeline.py'
+                echo 'Running the compiled java code.'
+                sh 'java Hello'
             }
         }
-
     }
 }
